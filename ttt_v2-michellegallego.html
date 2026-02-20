@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tictactoehomework</title>
+<style type="text/css">
+h1 {
+    text-align: center
+}
+h4 {
+    text-align: center
+}
+
+.turn
+	{
+		font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif"; 
+		border: 1px solid; 
+		padding: 10px; 
+		width: 100px;  
+		height: 30px; 
+		margin: 0 auto;
+		text-align: center;
+ 
+	}
+	
+a:hover {
+    background-color: #8B1B4F;
+    color: antiquewhite;
+
+}
+.square {
+    border: 1px solid #999;
+    width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif"
+}
+	.box:hover {background-color: #8B1B4F;
+    color: antiquewhite;}	
+	
+	.ttt
+	{display: flex;
+	justify-content: center;
+	align-items: center;}
+	
+#box-container {
+    text-align: center;
+	justify-content: center;
+	display: grid; grid-template-columns: 100px 100px 100px; gap: 5px;
+}
+	
+	.button {
+	background-color: #8B1B4F;
+    color: antiquewhite;
+	padding: 25px;
+
+	}
+	
+	.button:hover {
+		background-color: antiquewhite;
+		color: #8B1B4F;
+	}
+	
+	
+</style>
+</head>
+
+<body>
+<h1>Tic-Tac-Toe Game</h1>
+
+<div class="turn">			
+	X's turn
+	</div>
+<br>
+	<div id="box-container">
+  
+<script>	
+const NUM_SQUARES = 9;
+for (i=0; i<NUM_SQUARES; i++)
+{
+id = "sq"+i;
+document.write( "<div class='square' id='" + id + "'></div>" );
+}
+		
+		window.onload= function() {
+btn = document.getElementById("button1-id");
+btn.onclick = function(){
+result = document.getElementById("result");
+result.innerHTML = "Content: " + this.innerText
++ "<br />Class " + this.className
++ "<br />Name " + this.getAttribute("name")
++ "<br />ID " + this.id;
+} // end button click
+} // end window onload	
+		
+</script>
+
+</div>
+
+<script>
+	document.getElementById("sq1").innerHTML="O"
+	document.getElementById("sq3").innerHTML="X"
+	document.getElementById("sq8").innerHTML="X"
+	
+
+</script>	
+	
+<!-- end box container -->
+	<br>
+	<br>
+	<br>
+	<center>
+	<button class="button">Start Game</button>
+</center>
+	<br>
+	<br>
+
+			<h4> Want to learn more about the beautiful game? Check out the Tic-Tac-Toe <a href="https://en.wikipedia.org/wiki/tic-tac-toe" target="_blank">wiki page!</a></h4>
+	
+</body>
+</html>
