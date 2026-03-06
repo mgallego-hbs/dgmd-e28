@@ -122,7 +122,6 @@ document.write( "<div class='square' id='" + id + "'></div>" );
 			});
 			winner = null;
 			startGame();
-			turnDisplay.textContent = thisTurn + "'s turn"
 		}
 	}
 //load Xs and Os on the board		
@@ -134,8 +133,6 @@ document.write( "<div class='square' id='" + id + "'></div>" );
 			{ 
 				if (this.textContent === '')
 				this.textContent = thisTurn
-//X's or O's turn 	
-				turnDisplay.textContent = thisTurn + "'s turn";
 		/*		alert (this.id)	
 		 */
 				if (thisTurn ==="X") 
@@ -151,7 +148,7 @@ document.write( "<div class='square' id='" + id + "'></div>" );
 		if (item.textContent === "X")
 			return "X"; 	
 		if (item.textContent === "O")
-			return "O"; 	
+			return "O"; 		
 		}
 		let moves = Array.from(document.querySelectorAll(".square")).map(myMap);
 /*
@@ -173,7 +170,7 @@ if (sq0 + sq1 + sq2 === "XXX" || "OOO")
 				
 //win check/game over				
 let squares = document.querySelectorAll(".square")			
-
+	turnDisplay.textContent = thisTurn + "'s turn";		
 			for (let i=0; i<winConditions.length; i++)
 			if (winConditions[i] === "XXX") 
 				{
