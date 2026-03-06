@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tictactoehomework</title>
+<style type="text/css">
+h1 {
+    text-align: center
+}
+h4 {
+    text-align: center
+   }
+
+.turnDisplay
+	{
+		font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif"; 
+		border: 1px solid; 
+		padding: 10px; 
+		width: 100px;  
+		height: 30px; 
+		margin: 0 auto;
+		text-align: center;
+ 
+	}
+	
+a:hover {
+    background-color: #8B1B4F;
+    color: antiquewhite;
+
+		}
+.square {
+    border: 1px solid #999;
+    width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif"
+		}
+	.square:hover {background-color: #8B1B4F;
+    color: antiquewhite;}	
+	
+	.ttt
+	{display: flex;
+	justify-content: center;
+	align-items: center;}
+	
+#box-container {
+    text-align: center;
+	justify-content: center;
+	display: grid; grid-template-columns: 100px 100px 100px; gap: 5px;
+			   }
+	
+	.button {
+	display: block;
+	width: 200px;
+	margin: 20px auto;
+	background-color: #8B1B4F;
+    color: antiquewhite;
+	padding: 25px;
+	}
+	
+	.button:hover {
+		background-color: antiquewhite;
+		color: #8B1B4F;
+	}
+	
+</style>
+	
+</head>
+
+<body>
+	<h1>Tic-Tac-Toe Game</h1>
+
+<div class="turnDisplay">
+	
+	</div>
+<br>
+	<div id="box-container">
+  
+<script>	
+const NUM_SQUARES = 9;
+for (i=0; i<NUM_SQUARES; i++)
+{
+id = "sq"+i;
+document.write( "<div class='square' id='" + id + "'></div>" );
+}
+	</script>
+
+		
+	</div>
+
+	<button class="button">Start Game</button>
+
+			<h4> Want to learn more about the beautiful game? Check out the Tic-Tac-Toe <a href="https://en.wikipedia.org/wiki/tic-tac-toe" target="_blank">wiki page!</a></h4>
+	
+	<script>
+	//global
+	var thisTurn;
+	var winner;
+	function startGame()
+		{
+			if (Math.random() <.5) 
+				thisTurn = "X"
+			else
+				thisTurn = "O"
+		}
+		
+	
+	window.onload= function() 
+	{
+		turnDisplay = document.querySelector(".turnDisplay");
+		
+		var button = document.querySelector(".button");
+		button.onclick = function() 
+//clear board, start new game
+		{
+			squares.forEach(function(square)
+			{
+				square.textContent = "";
+			});
+			winner = null;
+			startGame();
+			turnDisplay.textContent = thisTurn + "'s turn"
+		}
+	}
+//load Xs and Os on the board		
+		startGame()
+		var squares = document.querySelectorAll(".square");
+		for (i = 0; i<squares.length; i++) 
+		{ 
+			squares[i].onclick = function() 
+			{ 
+				if (this.textContent === '')
+				this.textContent = thisTurn
+//X's or O's turn 	
+				turnDisplay.textContent = thisTurn + "'s turn";
+		/*		alert (this.id)	
+		 */
+				if (thisTurn ==="X") 
+					thisTurn = "O";
+				else 
+					thisTurn ="X";
+			
+			function myMap(item, i, arr)
+		{	
+		// arr.push(item)	
+		if (item.textContent === "")
+			return "-"; 	
+		if (item.textContent === "X")
+			return "X"; 	
+		if (item.textContent === "O")
+			return "O"; 	
+		}
+		let moves = Array.from(document.querySelectorAll(".square")).map(myMap);
+/*
+if (sq0 + sq1 + sq2 === "XXX" || "OOO")
+*/
+		console.log("winConditions")		
+	var winConditions = 
+		[moves[0] + moves[1] + moves[2], //horizontal top row
+		 moves[3] + moves[4] + moves[5], //horizontal middle row
+		 moves[6] + moves[7] + moves[8], //horizontal last row
+		 moves[0] + moves[3] + moves[6], //vertical first column
+		 moves[1] + moves[4] + moves[7], //vertical second column
+		 moves[2] + moves[5] + moves[8], //vertical third column
+		 moves[2] + moves[4] + moves[6], //diagonal win left to right
+		 moves[0] + moves[4] + moves[8], //diagonal win right to left
+		]
+		console.log(winConditions)
+
+				
+//win check/game over				
+let squares = document.querySelectorAll(".square")			
+
+			for (let i=0; i<winConditions.length; i++)
+			if (winConditions[i] === "XXX") 
+				{
+				for (let i = 0; i < squares.length; i++) squares[i].onclick = null;
+				winner = "X";
+				turnDisplay.textContent = winner + " wins!";	
+				return;
+				}
+	
+			for (let i=0; i<winConditions.length; i++)	
+			if (winConditions[i] === "OOO")
+				{
+			for (let i = 0; i < squares.length; i++) squares[i].onclick = null;
+				winner = "O";
+				turnDisplay.textContent = winner + " wins!";	
+				return;	
+				}
+			//stalemate
+			if (!moves.includes("-")) 
+				{
+				winner = "draw";
+				turnDisplay.textContent = "Draw"
+				}
+			}
+		}
+
+	// end window onload
+	
+	</script>
+	
+	
+	
+</body>
+</html>
