@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+	.header 
+		{
+			color: #E52222;
+			text-align: center;
+			font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";	
+		}		
+
+	body 
+		{
+			background-color: #E4D4B7;
+			text-align: center;
+		}
+
+		
+	h3
+		{
+			color: black;
+			font-family:Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+		}
+
+	.button1 
+		{
+			padding: 20px 20px;
+			text-align: center;
+			font-size: 10px;
+			margin: 3px 3px;
+			color: white;
+		}
+
+.button2 
+		{
+			padding: 20px 20px;
+			text-align: center;
+			font-size: 10px;
+			margin: 3px 3px;
+			color: white;
+		}
