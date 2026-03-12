@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	
+		<title>Joe's Hotdogs Assignment</title>
+		<link rel="stylesheet" href="JoesHotdogs2.css">
+	
+	</head>
+	
+
+<body>
+	
+	<div class="header">
+		<h1>Joe's Hotdogs</h1>
+		<image> <img src="hotdog image.png" alt="Hotdog" width="50" height="50"></image>	
+	</div>
+
+<h3>Menu</h3>
+	<script>	
+// array from part 2
+	var joesMenu = 
+		{	
+		"Hotdog":4,
+		"Fries":3.5,
+		"Soda":1.5,
+		"Sauerkraut":1
+		}
+	
+		for (var food in joesMenu) 
+		{
+			document.write("<input type='radio' name='food' value='" + food + "'>")
+			document.write(food + ".........$" + joesMenu[food] + "<br>")
+		}
+ // starting each quantity at 0 so they can be added to cart
+		var quantities = {};
+			for (var food in joesMenu) 
+				{
+  			quantities[food] = 0;
+				}
+
+  // Add to Cart (adding & storing per click)
+		
+  function addToCart() {
+    var radios = document.getElementsByName('food');
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        var food = radios[i].value; 
+        quantities[food] = quantities[food] + 1;
+        return; 
+      }
+    }
+  }
+
+ // Checkout (tally up price, multiplied by amount ordered, determine total)
+		
+  function checkout() {
+    var message = "";
+    var orderTotal = 0;
+    for (var food in quantities) {
+      if (quantities[food] > 0) {
+        var subtotal = quantities[food] * joesMenu[food];
+        orderTotal = orderTotal + subtotal;
+        message += food + ": " + quantities[food] + " x $" + joesMenu[food] + " = $" + subtotal;
+      }
+    }
+//alerts	  
+    if (message === "") {
+      alert("Cart is empty.");
+      return;
+    }
+    message += " " + "Total: $" + orderTotal;
+    alert(message);
+
+// Reset to 0 after checkout
+    for (var food in quantities) quantities[food] = 0;
+  }
+
+ 
+//buttons 
+	window.onload = function() {
+   
+    var cart = document.getElementById('cartBtn');
+    if (cart) cart.onclick = addToCart;
+
+    var checkOut = document.getElementById('checkoutBtn');
+    if (checkOut) checkOut.onclick = checkout;
+
+  };
+</script>
+
+<br>
+<input type="button" id="cartBtn" value="Add to Cart">	
+<input type="button" id="checkoutBtn" value="Checkout">
+	
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Joe's Hotdogs Assignment</title>
+		<link rel="stylesheet" href="JoesHotdogs.css">
+	</head>
+
+<body>
+	
+	<div class="header">
+		<h1>Joe's Hotdogs</h1>
+		<image> <img src="hotdog image.png" alt="Hotdog" width="50" height="50"></image>	
+	</div>
+	
+<h3>Part 1</h3>
+	
+	<script>
+		
+	/*items and prices
+	hotdogs : $4
+	fries : $3.50
+	soda : $1.50
+	sauerkraut : $1
+	 */
+
+	Menu = [];
+	Menu["hotdog"] = 4
+	Menu["fries"] = 3.5
+	Menu["soda"] = 1.5
+	Menu["sauerkraut"] = 1
+		for (key in Menu)
+			 document.write("<li>" + key + ".........." + "$" + Menu[key])
+	</script>
+
+<h3>Part 2</h3>
+	<script>	
+// example of obejct key pairing from class with flowers
+	var joesMenu =
+	{	
+	"hotdog":4,
+	"fries":3.5,
+	"soda":1.5,
+	"sauerkraut":1
+	}
+		for (key in joesMenu)
+			 document.write("<li>" + key + ".........." + "$" + joesMenu[key])
+	</script>
+		
+<h3>Part 3</h3>
+	
+	<script>
+//	class menuItem - defining a function as a Class
+
+		function menuItem(item,price)
+//	constructors - input arguments for the Class		
+		{
+			this.item = item;
+			this.price = price;
+		}
+			
+//	creating 4 instances of the Class	
+		var menuItem1 = new menuItem("hotdog", 4);
+		var menuItem2 = new menuItem("fries", 3.5);
+		var menuItem3 = new menuItem("soda", 1.5);
+		var menuItem4 = new menuItem("sauerkraut", 1);
+//	putting instances into an Array		
+		var menuArray = [menuItem1, menuItem2, menuItem3, menuItem4]
+//	printing each Item of the Array	
+		
+	menuArray.forEach (function(thisOne)
+		{
+		document.write("<li>" + thisOne.item + ".........." + "$" + thisOne.price);	   
+		})
+
+		
+		
+	</script>
+	
+</body>
+</html>
